@@ -6,7 +6,7 @@ environments:
 plugins:
   extractors:
   - config:
-      access_token:
+      access_token: ''
       repository: mounicarajput/snake_Game
       start_date: '2023-01-01'
     name: tap-github
