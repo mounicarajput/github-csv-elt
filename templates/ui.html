@@ -1,0 +1,92 @@
+<style>
+    /* Style for the form */
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+    label {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        flex-basis: 100%;
+    }
+
+    select, input[type="text"] {
+        font-size: 1rem;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    button[type="submit"] {
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #3e8e41;
+    }
+
+    /* Style for the tap options */
+    #extractor option[value="tap-github"] {
+        background-image: url('https://img.icons8.com/material-outlined/24/000000/github.png');
+        background-repeat: no-repeat;
+        background-position: center left;
+        padding-left: 30px;
+    }
+
+    #loader option[value="target-csv"] {
+        background-image: url('https://img.icons8.com/material-outlined/24/000000/csv-2.png');
+        background-repeat: no-repeat;
+        background-position: center left;
+        padding-left: 30px;
+    }
+</style>
+
+<!-- HTML form -->
+<form action="/update_meltano_config" method="POST">
+    <label for="extractor">Extractor:</label>
+    <select id="extractor" name="extractor">
+        <option value="tap-github">tap-github</option>
+        <option value="tap-salesforce">tap-salesforce</option>
+        <!-- add more options as needed -->
+    </select>
+
+    <label for="loader">Loader:</label>
+    <select id="loader" name="loader">
+        <option value="target-csv">target-csv</option>
+        <option value="target-snowflake">target-snowflake</option>
+        <!-- add more options as needed -->
+    </select>
+
+    <label for="access_token">Access Token:</label>
+    <input type="text" id="access_token" name="access_token">
+
+    <label for="start_date">Start Date:</label>
+    <input type="text" id="start_date" name="start_date">
+
+    <label for="repository">Repository:</label>
+    <input type="text" id="repository" name="repository">
+
+    <label for="path">Path:</label>
+    <input type="text" id="path" name="path">
+
+    <button type="submit">Submit</button>
+</form>

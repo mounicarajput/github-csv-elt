@@ -1,7 +1,22 @@
-version: 1
 default_environment: dev
-project_id: fa167835-00ef-4dda-b50d-033a69eb0339
 environments:
 - name: dev
 - name: staging
 - name: prod
+plugins:
+  extractors:
+  - config:
+      access_token:
+      repository: mounicarajput/snake_Game
+      start_date: '2023-01-01'
+    name: tap-github
+    pip_url: tap-github
+    variant: singer-io
+  loaders:
+  - config:
+      destination_path: /Users/monikarajput/Documents/personal_project/github-csv/output
+    name: target-csv
+    pip_url: git+https://github.com/hotgluexyz/target-csv.git
+    variant: hotgluexyz
+project_id: fa167835-00ef-4dda-b50d-033a69eb0339
+version: 1
